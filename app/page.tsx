@@ -56,7 +56,7 @@ export default function CoupleHeader() {
   }
 
   return (
-    <main className="p-4 bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-auto no-scrollbar">
+    <main className=" bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen overflow-auto no-scrollbar">
       <Nav />
       <Avatar
         girlName={girlName}

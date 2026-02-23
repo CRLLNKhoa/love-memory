@@ -102,7 +102,7 @@ export default function Milestones({ ...props }: any) {
     .sort((a, b) => a.daysLeft - b.daysLeft);
 
   return (
-    <div className="flex flex-col gap-4 mb-4">
+    <div className="flex flex-col gap-4 mb-4 p-4">
       <div className="flex items-center gap-3">
         <h2 className="text-slate-900 dark:text-slate-100 text-2xl font-bold select-none">
           Sự kiện sắp tới

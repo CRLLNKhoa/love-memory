@@ -36,51 +36,53 @@ export function ChartBarDefault({ data, ...props }: any) {
   }));
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-2xl">Nhật ký cảm xúc</CardTitle>
-        <CardDescription>30/10/2025 - Hiện tại</CardDescription>
-      </CardHeader>
+    <div className="p-4">
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl">Nhật ký cảm xúc</CardTitle>
+          <CardDescription>30/10/2025 - Hiện tại</CardDescription>
+        </CardHeader>
 
-      <CardContent>
-        <ChartContainer config={chartConfig}>
-          <BarChart accessibilityLayer data={moodArray}>
-            <CartesianGrid vertical={false} />
+        <CardContent>
+          <ChartContainer config={chartConfig}>
+            <BarChart accessibilityLayer data={moodArray}>
+              <CartesianGrid vertical={false} />
 
-            <XAxis
-              dataKey="name"
-              tickLine={false}
-              tickMargin={10}
-              axisLine={true}
-            />
+              <XAxis
+                dataKey="name"
+                tickLine={false}
+                tickMargin={10}
+                axisLine={true}
+              />
 
-            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+              <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
 
-            <Bar dataKey="value" radius={8}>
-              {moodArray.map((entry, index) => (
-                <Cell
-                  key={index}
-                  fill={
-                    chartConfig[entry.mood as keyof typeof chartConfig].color
-                  }
-                />
-              ))}
-            </Bar>
-          </BarChart>
-        </ChartContainer>
-      </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-2 justify-between leading-none font-medium w-full">
-          <h2>{analyzeRelationship(data)?.status}</h2>{" "}
-          <p className={`text-red-500`}>
-            {analyzeRelationship(data)?.score}
-            {"  "}Điểm
-          </p>
-        </div>
-        <div className="text-muted-foreground leading-none">
-          {analyzeRelationship(data)?.message}
-        </div>
-      </CardFooter>
-    </Card>
+              <Bar dataKey="value" radius={8}>
+                {moodArray.map((entry, index) => (
+                  <Cell
+                    key={index}
+                    fill={
+                      chartConfig[entry.mood as keyof typeof chartConfig].color
+                    }
+                  />
+                ))}
+              </Bar>
+            </BarChart>
+          </ChartContainer>
+        </CardContent>
+        <CardFooter className="flex-col items-start gap-2 text-sm">
+          <div className="flex gap-2 justify-between leading-none font-medium w-full">
+            <h2>{analyzeRelationship(data)?.status}</h2>{" "}
+            <p className={`text-red-500`}>
+              {analyzeRelationship(data)?.score}
+              {"  "}Điểm
+            </p>
+          </div>
+          <div className="text-muted-foreground leading-none">
+            {analyzeRelationship(data)?.message}
+          </div>
+        </CardFooter>
+      </Card>
+    </div>
   );
 }
