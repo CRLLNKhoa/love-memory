@@ -123,8 +123,11 @@ export default function Milestones({ ...props }: any) {
               <span className="material-symbols-outlined text-2xl">✦︎</span>
             </div>
             <div className="flex-1">
-              <p className="font-bold text-slate-900 dark:text-slate-100">
-                Sinh Nhật {event.title}
+              <p
+                className="font-bold text-slate-900 dark:text-slate-100 line-clamp-1"
+                title={event.title}
+              >
+                {event.title}
               </p>
               <p className="text-sm text-slate-500 dark:text-slate-400">
                 Ngày {new Date(event.date).toLocaleDateString("vi-VN")}
